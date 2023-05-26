@@ -1,0 +1,71 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="nav">
+      <a class="navbar-brand" href="#">Railway</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/trains">All Trains</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container my-5">
+    <h1 class="mb-3">Edit Train</h1>
+
+    <div class="row">
+        <div class="col-6">
+    
+        <form #form="ngForm" (ngSubmit)="editTrain()">
+            <div class="mb-3">
+              <label for="trainId" class="form-label">Train Id</label>
+              <input type="number" class="form-control" id="trainId" readonly
+              name="trainId" [(ngModel)] = "trainDetails.trainId">
+            </div>
+            <div class="mb-3">
+                <label for="trainName" class="form-label">Train Name</label>
+                <input type="text" class="form-control" id="trainName"
+                name="trainName" [(ngModel)] = "trainDetails.trainName">
+            </div>
+            <div class="mb-3">
+                <label for="source" class="form-label">Source</label>
+                <input type="text" class="form-control" id="source"
+                name="source" [(ngModel)] = "trainDetails.source">
+            </div>
+            <div class="mb-3">
+                <label for="destination" class="form-label">Destination</label>
+                <input type="text" class="form-control" id="destination"
+                name="destination" [(ngModel)] = "trainDetails.destination">
+            </div>
+            <div class="mb-3">
+                <label for="departureTime" class="form-label">Departure Time</label>
+                <input type="date" class="form-control" id="departureTime"
+                name="departureTime" [(ngModel)] = "trainDetails.departureTime">
+            </div>
+            <div class="mb-3">
+                <label for="arrivalTime" class="form-label">Arrival Time</label>
+                <input type="date" class="form-control" id="arrivalTime"
+                name="arrivalTime" [(ngModel)] = "trainDetails.arrivalTime">
+            </div>
+            <div class="mb-3">
+                <label for="availableSeats" class="form-label">Available Seats</label>
+                <input type="number" class="form-control" id="availableSeats"
+                name="availableSeats" [(ngModel)] = "trainDetails.availableSeats">
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Price</label>
+                <input type="number" class="form-control" id="price"
+                name="price" [(ngModel)] = "trainDetails.price">
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-danger"
+            (click)="deleteTrain(trainDetails.trainId)">Delete</button>
+        </form>
+        </div>
+    </div>
+    
+</div>
+

@@ -1,0 +1,47 @@
+<nav class="navbar">
+	<div class="navbar-container container">
+		<input type="checkbox" name="" id="">
+		<div class="hamburger-lines">
+			<span class="line line1"></span>
+			<span class="line line2"></span>
+			<span class="line line3"></span>
+		</div>
+		<ul class="menu-items">
+			<li><label [routerLink]="['/home']">Home</label></li>
+			<!-- <li><label [routerLink]="['/trains']">Admin</label></li> -->
+			<li><a class="btn btn-outline-success me-2" href="login">Login</a></li>
+			<!-- <li><a href="#">Menu</a></li>
+			<li><a href="#">Testimonial</a></li>
+			<li><a href="#">Contact</a></li> -->
+		</ul>
+		<h1 class="logo" [routerLink]="['/home']">Railway</h1>
+	</div>
+</nav>
+<div class="register-box">
+	<h2>Register</h2>
+	<form>
+	  <div class="user-box">
+		<input type="text" name="" required="">
+		<label>Name</label>
+	  </div>
+	  <div class="user-box">
+		<input type="email" name="" required="">
+		<label>Email</label>
+	  </div>
+      <div class="user-box">
+		<input type="password" name="" required="">
+		<label>Password</label>
+	  </div>
+	  <a href="login">
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		Submit
+	  </a>
+	  <div class="hr"></div>
+				<div class="foot-lnk">
+					<label for="tab-2" routerLink="/login">Already have an account?</label>
+				</div>
+	</form>
+  </div>

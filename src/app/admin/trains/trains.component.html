@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="nav">
+    <a class="navbar-brand" href="#">Railway</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="add">Add Trains</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container my-5">
+    <h1 class="mb-3">Trains</h1>
+    <table class="table" *ngIf="trains && trains.length > 0">
+    <thead>
+      <tr>
+        <th>TrainId</th>
+        <th>TrainName</th>
+        <th>Source</th>
+        <th>Destination</th>
+        <th>DepartureTime</th>
+        <th>ArrivalTime</th>
+        <th>AvailableSeats</th>
+        <th>Price</th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let train of trains">
+        <td>{{ train.trainId }}</td>
+        <td>{{ train.trainName }}</td>
+        <td>{{ train.source }}</td>
+        <td>{{ train.destination }}</td>
+        <td>{{ train.departureTime }}</td>
+        <td>{{ train.arrivalTime }}</td>
+        <td>{{ train.availableSeats }}</td>
+        <td>{{ train.price }}</td>
+        <td><a [routerLink]="['/trains','edit',train.trainId]">View</a></td>
+      </tr>
+    </tbody>
+    </table>
+    <p *ngIf="!trains || trains.length<=0">No Trains Found</p>
+</div>

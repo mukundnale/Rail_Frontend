@@ -16,4 +16,8 @@ export class AuthService {
   login(loginObj:any){
     return this.http.post<any>(`${this.baseUrl}Login`,loginObj)
   }
+
+  addToken(accessToken: string){
+    localStorage.setItem('token', accessToken);
+  }
 }

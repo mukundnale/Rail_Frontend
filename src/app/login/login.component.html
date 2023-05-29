@@ -1,47 +1,38 @@
-<nav class="navbar">
-	<div class="navbar-container container">
-		<input type="checkbox" name="" id="">
-		<div class="hamburger-lines">
-			<span class="line line1"></span>
-			<span class="line line2"></span>
-			<span class="line line3"></span>
-		</div>
-		<ul class="menu-items">
-			<li><label routerLink="/home">Home</label></li>
-			<li><label [routerLink]="['/trains']">Admin</label></li>
-			<!-- <li><a routerLink="home">Home</a></li> -->
-			<li><a class="btn btn-outline-success me-2" href="register">Register</a></li>
-			<!-- <li><a href="#">Menu</a></li>
-			<li><a href="#">Testimonial</a></li>
-			<li><a href="#">Contact</a></li> -->
-		</ul>
-		<h1 class="logo" [routerLink]="['/home']">Railway</h1>
-	</div>
-</nav>
-<div class="login-box">
-	<h2>Login</h2>
-	<form>
-	  <div class="user-box">
-		<input type="text" name="" required="">
-		<label>Email</label>
-	  </div>
-	  <div class="user-box">
-		<input type="password" name="" required="">
-		<label>Password</label>
-	  </div>
-	  
-	  <a href="#">
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		Submit
-	  </a>
-	  <div class="hr"></div>
-				<div class="foot-lnk">
-					<label for="tab-2" [routerLink]="['/register']">Not a registered user?</label>
-				</div>
-				<!-- <label for="tab-2" [routerLink]="['/login']">Not a registered user?</label> -->
+<div class="outer">
+	<div class="container">
+		<div class="row">
+			<div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+				<div class="panel border bg-white">
+					<div class="panel-heading">
+						<h3 class="pt-3 font-weight-bold">Login</h3>
+					</div>
+					<div class="panel-body p-3">
+						<form [formGroup]="loginForm">
+							<div class="form-group pt-3">
+								<div class="input-field" [class.error]="loginForm.controls['email'].dirty && loginForm.hasError('required','email')">
+									<span class="fa fa-user p-2"></span>
+									<input formControlName="email" type="text" placeholder="Email">
+								</div>
+							</div>
+							<small *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required','email')" class="text-danger">*Email is required</small>
+							<div class="form-group pt-3">
+								<div class="input-field" [class.error]="loginForm.controls['password'].dirty && loginForm.hasError('required','password')">
+									<span class="fa fa-lock p-2"></span>
+									<input formControlName="password" [type]="type" placeholder="Password">
+									<span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+								</div>
+							</div>
+							<small *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')" class="text-danger">*Password is required</small>
+							<button (click)="onLogin()" type="submit" class="btn btn-primary btn-block mt-4 w-100">Login</button>
+				
 
-	</form>
-  </div>
+							<div class="text-center pt-4 text-muted">
+								Not a registerd user? <a id="no-account" routerLink="/register">Register</a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

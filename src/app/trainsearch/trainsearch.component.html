@@ -1,0 +1,30 @@
+<div class="container">
+    <h2>Train Search Results</h2>
+  
+    <div *ngIf="trains.length > 0">
+      <div class="card mb-3" *ngFor="let train of trains">
+        <div class="card-body">
+          <div class="train-info">
+            <div>
+              <h5 class="train-name">Train: {{ train.trainName }}</h5>
+              <p class="departure-arrival">
+                <span class="departure">Departure: {{ train.source }}</span>
+                <span class="dotted-line"></span>
+                <span class="arrival">Arrival: {{ train.destination }}</span>
+              </p>
+              <p class="departure-date">Departure Date: {{ train.departureTime | date: 'yyyy-MM-dd' }}</p>
+            </div>
+            <div>
+              <!-- <p class="total-seats">Total Seats: {{ train.totalSeats }}</p> -->
+              <p class="price">Price: {{ train.price }}</p>
+              <button class="btn btn-primary">Book Train</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div *ngIf="trains.length === 0" class="no-trains">
+      <p>No trains found.</p>
+    </div>
+  </div>

@@ -1,8 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Trains } from '../models/trains.model';
 import { Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +12,9 @@ import { Observable } from 'rxjs';
 export class TrainsService {
 
   baseApiUrl: string = environment.baseApiUrl; 
+  // trains: any;
+  trains: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
+
 
   constructor(private http: HttpClient) { }
 
@@ -33,5 +38,20 @@ export class TrainsService {
 
   deleteTrain(id: number): Observable<Trains> {
     return this.http.delete<Trains>(this.baseApiUrl + '/api/Train/' + id);
+  }
+
+  getSearch(source: string, destination: string, departureTime: string): Observable<Trains[]> {
+    const params = new HttpParams()
+      .set('source', source)
+      .set('destination', destination)
+      .set('departureTime', departureTime);
+
+    return this.http.get<Trains[]>(this.baseApiUrl + '/api/Train/GetSearch', { params });
+  }
+
+  setTrains(data:any)
+  {
+    this.trains.next(data);
+   
   }
 }

@@ -11,6 +11,7 @@ import { AddTrainComponent } from './admin/add-train/add-train.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditTrainComponent } from './admin/edit-train/edit-train.component';
 import { RegisterComponent } from './register/register.component';
+import { TrainSearchComponent } from './trainsearch/trainsearch.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RegisterComponent } from './register/register.component';
     HomeComponent,
     TrainsComponent,
     AddTrainComponent,
-    EditTrainComponent
+    EditTrainComponent,
+    TrainSearchComponent
   ],
   imports: [
     BrowserModule,

@@ -47,6 +47,7 @@ export class TrainSearchComponent {
     ((res) => {this.trains = res
     console.log(this.trains);
   });
+  
   }
 
   

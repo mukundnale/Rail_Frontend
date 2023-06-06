@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   subscription!: Subscription;
   trains: any[] = [];
 
-  constructor(private fb: FormBuilder, private trainsService: TrainsService, private router: Router) { }
+  constructor(private fb: FormBuilder, private trainservice: TrainsService, private router: Router) { }
 
   ngOnInit() {
     this.trainSearchForm = this.fb.group({
@@ -49,26 +49,26 @@ export class HomeComponent implements OnInit, OnDestroy {
   searchTrains() {
     if (this.trainSearchForm.valid) {
       const formValue = this.trainSearchForm.value;
-      const departure = formValue.departCity; 
-      const arrival = formValue.arrivalCity;
+      const source = formValue.source; 
+      const destination = formValue.destination;
       const departureTime = formValue.departureTime;
       //const returnDate = formValue.returnDate;
   
-      this.subscription = this.trainsService.getSearch(departure, arrival, departureTime)
+      this.subscription = this.trainservice.getSearch(source, destination, departureTime)
         .subscribe({
           
           next: (data: any[]) => {
-          debugger
+          // debugger
     
             console.log(data);
             this.trains = data;
-            this.trainsService.setTrains(data)
+            //this.trainsService.setTrains(data)
             // Redirect to the search component
             this.router.navigate(['/search']);
           },
-          error: (error: any) => {
-            console.error('Error:', error);
-          }
+          // error: (error: any) => {
+          //   console.error('Error:', error);
+          // }
         });
     } else {
       alert('Please fill out the form before submitting!');
